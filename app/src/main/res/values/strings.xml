@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Yokaa</string>
+    <string name="nome1">Vinicius Marques</string>
+    <string name="profissao">3D Designer</string>
 </resources>
