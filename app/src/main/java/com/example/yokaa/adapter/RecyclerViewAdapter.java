@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-
     private static final String TAG = "RecyclerViewAdapter";
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mJob = new ArrayList<>();
@@ -40,10 +39,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "onCreateViewHolder: called.");
         holder.name.setText(mNames.get(position));
         holder.image.setImageResource(mImage.get(position));
         holder.job.setText(mJob.get(position));
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "onClick: ");
+            }
+        });
+
     }
 
     @Override
@@ -61,6 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             image = itemView.findViewById(R.id.profile_image1);
             name = itemView.findViewById(R.id.textView);
             job = itemView.findViewById(R.id.textView2);
+
         }
     }
 }
