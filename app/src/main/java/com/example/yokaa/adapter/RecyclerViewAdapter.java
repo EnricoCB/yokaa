@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yokaa.BlankFragment;
 import com.example.yokaa.R;
 
 import java.util.ArrayList;
@@ -56,17 +57,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mNames.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         CircleImageView image;
         TextView name;
         TextView job;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             image = itemView.findViewById(R.id.profile_image1);
             name = itemView.findViewById(R.id.textView);
             job = itemView.findViewById(R.id.textView2);
 
+        }
+
+        @Override
+        public void onClick(View itemView) {
+            Log.i("ConsoleS", "click" + getPosition());
         }
     }
 }

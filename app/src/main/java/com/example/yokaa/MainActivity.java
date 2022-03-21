@@ -5,10 +5,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.yokaa.adapter.RecyclerViewAdapter;
 
 import java.util.ArrayList;
+
+import kotlinx.coroutines.Job;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initInfos();
+        Log.i("ConsoleS", "certo");
     }
 
     private void initInfos(){
-        mNames.add("Vinicius Marques");
+        mNames.add("Vinícius Marques");
         mJob.add("3D Designer");
         mImage.add(R.drawable.foto);
 
@@ -49,4 +55,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapter(this, mNames, mJob, mImage);
         recyclerView.setAdapter(adapter);
     }
+
+
 }
