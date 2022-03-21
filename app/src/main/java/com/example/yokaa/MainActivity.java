@@ -1,33 +1,45 @@
 package com.example.yokaa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.yokaa.adapter.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import kotlinx.coroutines.Job;
 
+public class MainActivity extends AppCompatActivity {
+    BlankFragment blankFragment;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     RecyclerViewAdapter adapter;
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mJob = new ArrayList<>();
     private ArrayList<Integer> mImage = new ArrayList<>();
+
+    public void setOnDataListener(BlankFragment blankFragment) {
+        this.blankFragment = blankFragment;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initInfos();
+        Log.i("ConsoleS", "certo");
     }
 
     private void initInfos(){
-        mNames.add("Vinicius Marques");
+        mNames.add("Vinícius Marques");
         mJob.add("3D Designer");
         mImage.add(R.drawable.foto);
 
@@ -38,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mNames.add("Matheus Rogério");
         mJob.add("ADM");
         mImage.add(R.drawable.adm);
-
+        //blankFragment.changeMsg("teste");
 
         initRecyclerView();
     }
@@ -49,4 +61,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapter(this, mNames, mJob, mImage);
         recyclerView.setAdapter(adapter);
     }
+
+
 }
