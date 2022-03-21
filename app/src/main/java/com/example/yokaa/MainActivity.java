@@ -1,6 +1,7 @@
 package com.example.yokaa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,13 +17,18 @@ import java.util.ArrayList;
 import kotlinx.coroutines.Job;
 
 public class MainActivity extends AppCompatActivity {
-
+    BlankFragment blankFragment;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     RecyclerViewAdapter adapter;
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mJob = new ArrayList<>();
     private ArrayList<Integer> mImage = new ArrayList<>();
+
+    public void setOnDataListener(BlankFragment blankFragment) {
+        this.blankFragment = blankFragment;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mNames.add("Matheus Rogério");
         mJob.add("ADM");
         mImage.add(R.drawable.adm);
-
+        //blankFragment.changeMsg("teste");
 
         initRecyclerView();
     }
