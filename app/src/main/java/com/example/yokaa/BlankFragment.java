@@ -31,6 +31,7 @@ public class BlankFragment extends Fragment {
 
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mIdade = new ArrayList<>();
+    private ArrayList<String> mResumo = new ArrayList<>();
     private ArrayList<Integer> mImage = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
@@ -92,6 +93,7 @@ public class BlankFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        changeMsg(0);
         return view;
     }
 
@@ -100,9 +102,29 @@ public class BlankFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    public void changeMsg(Integer msg) {
-        Log.i("Console", String.valueOf(msg));
-        nomePefil.setText("oi");
-        resumoPerfil.setText(String.valueOf(msg));
+    public void changeMsg(Integer position) {
+        Log.i("Console", String.valueOf(position));
+        initInfo();
+        imagemPerfil.setImageResource(mImage.get(position));
+        nomePefil.setText(mNames.get(position));
+        idadePerfil.setText(mIdade.get(position));
+        resumoPerfil.setText(mResumo.get(position));
+    }
+
+    private void initInfo() {
+        mNames.add("Vinicius Marques");
+        mIdade.add("17");
+        mResumo.add("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        mImage.add(R.drawable.foto);
+
+        mNames.add("Enrico Budel");
+        mIdade.add("17");
+        mResumo.add("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        mImage.add(R.drawable.fotoo);
+
+        mNames.add("Matheus Rogerio");
+        mIdade.add("17");
+        mResumo.add("Lorem Ipsum is simply dummy text of the printing and typesetting industry aaaaaaaaaaaaaaaaaaaaaaaa.");
+        mImage.add(R.drawable.adm);
     }
 }
