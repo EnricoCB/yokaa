@@ -1,13 +1,12 @@
 package com.example.yokaa;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.yokaa.adapter.RecyclerViewAdapter;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import kotlinx.coroutines.Job;
 
 public class MainActivity extends AppCompatActivity {
-    BlankFragment blankFragment;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     RecyclerViewAdapter adapter;
@@ -25,17 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mJob = new ArrayList<>();
     private ArrayList<Integer> mImage = new ArrayList<>();
 
-    public void setOnDataListener(BlankFragment blankFragment) {
-        this.blankFragment = blankFragment;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initInfos();
-        Log.i("ConsoleS", "certo");
     }
 
     private void initInfos(){
@@ -50,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         mNames.add("Matheus Rogério");
         mJob.add("ADM");
         mImage.add(R.drawable.adm);
-        //blankFragment.changeMsg("teste");
 
         initRecyclerView();
     }
@@ -61,6 +53,4 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapter(this, mNames, mJob, mImage);
         recyclerView.setAdapter(adapter);
     }
-
-
 }
