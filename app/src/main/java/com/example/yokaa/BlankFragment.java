@@ -1,23 +1,37 @@
 package com.example.yokaa;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragment extends Fragment implements CardInterface {
+public class BlankFragment extends Fragment {
+
+    TextView resumoPerfil;
+    TextView idadePerfil;
+    ImageView imagemPerfil;
+    TextView nomePefil;
+
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mIdade = new ArrayList<>();
+    private ArrayList<Integer> mImage = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,31 +75,34 @@ public class BlankFragment extends Fragment implements CardInterface {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false);
+        View view = inflater.inflate(R.layout.fragment_blank, container, false);
+
+        nomePefil = (TextView) view.findViewById(R.id.nomePerfil);
+        idadePerfil = (TextView) view.findViewById(R.id.idadePerfil);
+        imagemPerfil = (ImageView) view.findViewById(R.id.imagemPerfil);
+        resumoPerfil = (TextView) view.findViewById(R.id.resumoPerfil);
+
+        Button mButton = (Button) view.findViewById(R.id.verMaisBtn);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Bio.class) ;
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        changeMsg("Teste");
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        try {
-            ((MainActivity) getActivity()).setOnDataListener(this);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @Override
-    public void changeMsg(String msg) {
-        TextView textView = getView().findViewById(R.id.resumoPerfil);
-        textView.setText(msg);
+    public void changeMsg(Integer msg) {
+        Log.i("Console", String.valueOf(msg));
+        nomePefil.setText("oi");
+        resumoPerfil.setText(String.valueOf(msg));
     }
 }

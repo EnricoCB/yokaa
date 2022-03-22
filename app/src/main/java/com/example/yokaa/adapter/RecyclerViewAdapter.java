@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
     private static final String TAG = "RecyclerViewAdapter";
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mJob = new ArrayList<>();
@@ -45,13 +46,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.name.setText(mNames.get(position));
         holder.image.setImageResource(mImage.get(position));
         holder.job.setText(mJob.get(position));
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "onClick: ");
-            }
-        });
-
     }
 
     @Override
@@ -75,8 +69,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View itemView) {
-            Log.i("ConsoleS", "click" + getPosition());
-
+            FragmentManager manager = ((AppCompatActivity)mContext).getSupportFragmentManager();
+            BlankFragment blankFragment = (BlankFragment) manager.findFragmentById(R.id.fragmentContainerView);
+            blankFragment.changeMsg(getPosition());
         }
     }
 }
