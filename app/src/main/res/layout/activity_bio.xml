@@ -8,7 +8,7 @@
     tools:context=".Bio">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageBio"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -28,37 +28,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageBio"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/nomeBio"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Vinícius Diniz"
+        android:text="Nome"
         android:textColor="#f2f2f2"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/view5"
-        app:layout_constraintStart_toStartOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/imageBio" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textBio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:text="Bio"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view5" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/gitHubButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -67,7 +67,7 @@
         android:paddingHorizontal="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textBio"
         app:srcCompat="@drawable/ic_github_icon" />
 
 

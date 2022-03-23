@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.yokaa.integrantes.Integrantes;
+
 import java.util.ArrayList;
 
 /**
@@ -28,11 +30,7 @@ public class BlankFragment extends Fragment {
     TextView idadePerfil;
     ImageView imagemPerfil;
     TextView nomePefil;
-
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mIdade = new ArrayList<>();
-    private ArrayList<String> mResumo = new ArrayList<>();
-    private ArrayList<Integer> mImage = new ArrayList<>();
+    int position;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,16 +78,18 @@ public class BlankFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
 
-        nomePefil = (TextView) view.findViewById(R.id.nomePerfil);
-        idadePerfil = (TextView) view.findViewById(R.id.idadePerfil);
-        imagemPerfil = (ImageView) view.findViewById(R.id.imagemPerfil);
-        resumoPerfil = (TextView) view.findViewById(R.id.resumoPerfil);
+        nomePefil = view.findViewById(R.id.nomePerfil);
+        idadePerfil = view.findViewById(R.id.idadePerfil);
+        imagemPerfil = view.findViewById(R.id.imagemPerfil);
+        resumoPerfil = view.findViewById(R.id.resumoPerfil);
 
-        Button mButton = (Button) view.findViewById(R.id.verMaisBtn);
+        Button mButton = view.findViewById(R.id.verMaisBtn);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Bio.class) ;
+                //Intent Explícita enviando parâmetro de posição
+                Intent intent = new Intent(getActivity(), Bio.class);
+                intent.putExtra("position", position);
                 startActivity(intent);
             }
         });
@@ -102,29 +102,15 @@ public class BlankFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    //Muda os dados ao clicar em um item da RecyclerView
     public void changeMsg(Integer position) {
-        Log.i("Console", String.valueOf(position));
-        initInfo();
-        imagemPerfil.setImageResource(mImage.get(position));
-        nomePefil.setText(mNames.get(position));
-        idadePerfil.setText(mIdade.get(position));
-        resumoPerfil.setText(mResumo.get(position));
-    }
+        Integrantes integrantes = new Integrantes();
+        integrantes.initInfo();
 
-    private void initInfo() {
-        mNames.add("Vinicius Marques");
-        mIdade.add("17");
-        mResumo.add("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        mImage.add(R.drawable.foto);
-
-        mNames.add("Enrico Budel");
-        mIdade.add("17");
-        mResumo.add("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-        mImage.add(R.drawable.fotoo);
-
-        mNames.add("Matheus Rogerio");
-        mIdade.add("17");
-        mResumo.add("Lorem Ipsum is simply dummy text of the printing and typesetting industry aaaaaaaaaaaaaaaaaaaaaaaa.");
-        mImage.add(R.drawable.adm);
+        imagemPerfil.setImageResource(integrantes.getmImage().get(position));
+        nomePefil.setText(integrantes.getmNames().get(position));
+        idadePerfil.setText(integrantes.getmIdade().get(position));
+        resumoPerfil.setText(integrantes.getmResumo().get(position));
+        this.position = position;
     }
 }
