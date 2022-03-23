@@ -57,16 +57,16 @@ public class Integrantes {
         mJob.add("Mobile Developer");
         mIdade.add("17");
         mImage.add(R.drawable.fotoo);
-        mResumo.add("Olá, este é o resumo do enrico");
-        mBio.add("Olá, esta é a bio do enrico");
+        mResumo.add("Meu nome é Enrico, tenho 17 anos e faço curso técnico integrado em informática no ifms campus Coxim.");
+        mBio.add("Olá, meu nome é Enrico, tenho 17 anos e faço curso tecnico integrado em informatica no ifms campus Coxim. Atualmente moro em Coxim e faço estágio como desenvolvedor mobile na Jera utilizando o Kotlin como linguagem de progamação.");
         mGitHubLink.add("https://github.com/EnricoCB");
 
         mNames.add("Matheus Rogério");
         mJob.add("ADM");
         mIdade.add("17");
         mImage.add(R.drawable.adm);
-        mResumo.add("Olá, este é o resumo do adm");
-        mBio.add("Olá, esta é a bio do adm");
+        mResumo.add("Meu nome é Matheus, mais conhecido como ADM (devido a minha alta capacidade de gerenciamento e administração de servers do discord).");
+        mBio.add("Meu nome é Matheus, mais conhecido como ADM (devido a minha alta capacidade de gerenciamento e administração de servers do discord), tenho 17 anos e estou finalizando o curso técnico em informático do campus Coxim, nasci e sempre morei aqui, faço estágio na Rockcell, moro com meus pais.");
         mGitHubLink.add("https://www.instagram.com/matheusr_s_/");
     }
 }
