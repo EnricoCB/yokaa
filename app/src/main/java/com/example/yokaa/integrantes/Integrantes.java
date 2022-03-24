@@ -48,10 +48,9 @@ public class Integrantes {
         mJob.add("3D Designer");
         mIdade.add("17");
         mImage.add(R.drawable.foto);
-        mResumo.add("Olá, este é o resumo do vica");
-        mBio.add("Olá, esta é a bio do vica");
+        mResumo.add("Meu nome é Vinícius, mas muitos me chamam de Vica, estou cursando o curso técnico integrado em informática no");
+        mBio.add("Olá, meu nome é Vinícius, mas muitos me chamam de Vica, atualmente estou cursando técnico integrado em informática no ifms campus Coxim.\nPretendo cursar Engenharia Aeroespacial e ir morar em outro país, isso se eu não acabar como motorista de Uber ao final do curso.\nNo momento estou criando um jogo que se passa dentro do if que está ficando muito interessante.\nManjo de Java, C#, JS, Python, HTML, CSS e Blender. Além disso, sei mexer com React, React Native, Vue e NodeJs.\nPor fim, sou mono Senna no lolzin.");
         mGitHubLink.add("https://github.com/Vicarillous");
-
 
         mNames.add("Enrico Budel");
         mJob.add("Mobile Developer");
